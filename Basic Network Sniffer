@@ -1,0 +1,11 @@
+from scapy.all import *
+import time
+
+# set the name of the output file
+output_file = "capture.pcap"
+
+# start the sniffer
+pkts = sniff(timeout=10)
+
+# write the packets to the output file
+wrpcap(output_file, pkts)
