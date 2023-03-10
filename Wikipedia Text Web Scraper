@@ -1,0 +1,18 @@
+import requests
+from bs4 import BeautifulSoup
+
+
+url = input("Enter the URL of the Wikipedia page you want to scrape: ")
+
+
+response = requests.get(url)
+html = response.content
+
+
+soup = BeautifulSoup(html, "html.parser")
+
+
+content = soup.find(id="mw-content-text").get_text()
+
+
+print(content)
